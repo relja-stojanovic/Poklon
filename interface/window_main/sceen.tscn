@@ -213,6 +213,6 @@ unique_name_in_owner = true
 [node name="Highscore" parent="." unique_id=979678802 instance=ExtResource("14_4jocx")]
 unique_name_in_owner = true
 
-[node name="Window" parent="." unique_id=1632186870 instance=ExtResource("15_4jocx")]
+[node name="GameOver" parent="." unique_id=1632186870 instance=ExtResource("15_4jocx")]
 
 [connection signal="pressed" from="UI/Top/FileButton" to="." method="_on_file_button_pressed"]
