@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bm3uechvrfb3b"]
+
+[ext_resource type="Shader" uid="uid://baitkynsnpv4l" path="res://assets/shader/grid.gdshader" id="1_3efew"]
+
+[resource]
+shader = ExtResource("1_3efew")
+shader_parameter/grid_size = 9.0
+shader_parameter/line_thickness = 0.150000007125
+shader_parameter/color = Color(0.008, 0.082, 0.149, 1)
+shader_parameter/invert_grid = false

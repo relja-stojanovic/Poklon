@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dmutr5qjejtf8"]
+
+[ext_resource type="Shader" uid="uid://bufknotjcp5l0" path="res://assets/shader/background.gdshader" id="1_pqut7"]
+
+[resource]
+shader = ExtResource("1_pqut7")
+shader_parameter/color_1 = Color(0.561, 0.004, 0.467, 1)
+shader_parameter/color_2 = Color(0.212, 0.004, 0.522, 1)
+shader_parameter/speed = 0.5
+shader_parameter/wave_scale = 400.0

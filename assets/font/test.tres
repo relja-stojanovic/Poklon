@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://o4y60clh1oy6"]
+
+[ext_resource type="FontFile" uid="uid://2a50lo1sluy1" path="res://assets/font/nimoType-Regular.otf" id="1_ah86b"]
+
+[resource]
+base_font = ExtResource("1_ah86b")
+spacing_glyph = -13

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://4lbxiud0jbja"]
+
+[ext_resource type="Script" uid="uid://dexk1h44me5ni" path="res://interface/window_main/board/ElementDisplay.gd" id="1_1hxrx"]
+[ext_resource type="Script" uid="uid://p626t6c8uiq2" path="res://interface/window_main/board/elements/tilemap.gd" id="4_pqxtx"]
+[ext_resource type="Texture2D" uid="uid://c6bmny5thl2b3" path="res://assets/texture/texture.png" id="5_b0jsy"]
+[ext_resource type="Shader" uid="uid://b2cadam2q8xup" path="res://assets/shader/selected_element.gdshader" id="8_mxpwo"]
+[ext_resource type="Script" uid="uid://5q6qkuoe6jj4" path="res://interface/window_main/board/elements/path.gd" id="11_si6el"]
+[ext_resource type="Script" uid="uid://dab4t81slhs1u" path="res://interface/window_main/board/elements/path_follow.gd" id="12_grynd"]
+[ext_resource type="Script" uid="uid://ccwpjhyp82sdc" path="res://interface/window_main/board/elements/moving.gd" id="12_hfesp"]
+
+[sub_resource type="Curve2D" id="Curve2D_grynd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1t033"]
+shader = ExtResource("8_mxpwo")
+shader_parameter/stripe_count = 40.0
+shader_parameter/effect = 1.0
+shader_parameter/speed = 10.0
+shader_parameter/stripe_thickness = 0.1
+shader_parameter/alpha = 1.0
+
+[node name="Root" type="Node2D" unique_id=9278442]
+physics_interpolation_mode = 2
+script = ExtResource("1_1hxrx")
+
+[node name="Elements" type="Node2D" parent="." unique_id=793058468]
+script = ExtResource("4_pqxtx")
+
+[node name="Path" type="Path2D" parent="." unique_id=1556779526]
+visible = false
+curve = SubResource("Curve2D_grynd")
+script = ExtResource("11_si6el")
+
+[node name="PathFollow" type="PathFollow2D" parent="Path" unique_id=814321159]
+unique_name_in_owner = true
+rotates = false
+loop = false
+script = ExtResource("12_grynd")
+
+[node name="MovingElement" type="Sprite2D" parent="Path/PathFollow" unique_id=1648044407]
+material = SubResource("ShaderMaterial_1t033")
+texture = ExtResource("5_b0jsy")
+region_enabled = true
+script = ExtResource("12_hfesp")
+
+[connection signal="element_cancel" from="." to="Elements" method="_on_element_cancel"]
+[connection signal="element_select" from="." to="Elements" method="_on_element_select"]
+[connection signal="target_select" from="." to="Path/PathFollow/MovingElement" method="_on_target_select"]
+[connection signal="finished" from="Path" to="Path/PathFollow" method="_on_path_finished"]
+[connection signal="finished" from="Path/PathFollow" to="Path" method="_on_path_follow_finished"]
+[connection signal="finished" from="Path/PathFollow/MovingElement" to="Path" method="_on_moving_element_finished"]

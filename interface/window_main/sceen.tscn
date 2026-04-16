@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://ci7cukdcxsjpq"]
+
+[ext_resource type="Script" uid="uid://kuowvdd77jvp" path="res://interface/window_main/main.gd" id="2_4jocx"]
+[ext_resource type="Material" uid="uid://dmutr5qjejtf8" path="res://assets/res/background_ball.tres" id="3_er4ar"]
+[ext_resource type="Script" uid="uid://kyelgpl4uka3" path="res://interface/window_main/top/menu/file/menu.gd" id="3_oqinm"]
+[ext_resource type="Script" uid="uid://cbfbrqpjlwm2u" path="res://interface/window_main/top/menu/settings/menu.gd" id="4_er4ar"]
+[ext_resource type="Script" uid="uid://pke4axdkhmc7" path="res://interface/window_main/board/shader_selector.gd" id="4_g1xfy"]
+[ext_resource type="Script" uid="uid://jho7c42xy578" path="res://interface/window_main/top/score.gd" id="5_8ed5t"]
+[ext_resource type="Theme" uid="uid://b3171v3c8d6od" path="res://assets/theme/score.tres" id="5_oqinm"]
+[ext_resource type="Script" uid="uid://cyq38bk58pjkg" path="res://interface/window_main/top/preview.gd" id="6_4jocx"]
+[ext_resource type="Script" uid="uid://djbimqgro8vku" path="res://interface/window_main/input.gd" id="6_gdit3"]
+[ext_resource type="PackedScene" uid="uid://4lbxiud0jbja" path="res://interface/window_main/board/element_display.tscn" id="7_g1xfy"]
+[ext_resource type="Script" uid="uid://mxta8bkkeq8j" path="res://interface/window_main/preview/subviewport.gd" id="8_5kpx4"]
+[ext_resource type="Material" uid="uid://bm3uechvrfb3b" path="res://assets/res/grid_word.tres" id="9_8ed5t"]
+[ext_resource type="Material" uid="uid://b5qp4bctqlsi1" path="res://assets/res/background_word.tres" id="9_er4ar"]
+[ext_resource type="TileSet" uid="uid://c2fjaac6tfuak" path="res://assets/res/tileset.tres" id="9_s8fps"]
+[ext_resource type="Script" uid="uid://y87xjiajg2ic" path="res://interface/window_main/preview/grid.gd" id="10_ep230"]
+[ext_resource type="Material" uid="uid://dha122hf0wl4l" path="res://assets/res/grid_ball.tres" id="11_8ed5t"]
+[ext_resource type="Script" uid="uid://dabb6sgv3i21e" path="res://interface/window_main/board/grid.gd" id="11_gdit3"]
+[ext_resource type="PackedScene" uid="uid://cyrecge66ebt6" path="res://interface/window_main/top/menu/file/new_game/window_sceen.tscn" id="13_6mlf7"]
+[ext_resource type="PackedScene" uid="uid://5b50t3miwmh6" path="res://interface/window_main/top/menu/file/highscore/window_sceen.tscn" id="14_4jocx"]
+[ext_resource type="PackedScene" uid="uid://dwegaf8mwepa2" path="res://interface/window_main/game_over/window_sceen.tscn" id="15_4jocx"]
+
+[sub_resource type="Shader" id="Shader_6mlf7"]
+code = "shader_type canvas_item;
+
+uniform vec4 replace_color : source_color = vec4(1, 1, 1, 1);
+uniform vec4 color_1 : source_color = vec4(1, 0, 0, 1);
+uniform vec4 color_2 : source_color = vec4(0, 0, 1, 1);
+uniform float speed = 1;
+uniform float wave_scale = 400.0;
+
+void fragment() {
+	vec4 tex = texture(TEXTURE, UV);
+	if (replace_color == tex) {
+		float t = (FRAGCOORD.x + FRAGCOORD.y) / wave_scale + TIME * speed;
+		float wave = (sin(t) + 1.0) * 0.5;
+		vec4 gradient = mix(color_1, color_2, wave);
+		gradient.a = tex.a;
+		COLOR = gradient;
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqinm"]
+shader = SubResource("Shader_6mlf7")
+shader_parameter/replace_color = Color(1, 1, 1, 1)
+shader_parameter/color_1 = Color(0.56078434, 0.003921569, 0.46666667, 1)
+shader_parameter/color_2 = Color(0.21176471, 0.003921569, 0.52156866, 1)
+shader_parameter/speed = 1.0
+shader_parameter/wave_scale = 400.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x7vg5"]
+viewport_path = NodePath("Preview")
+
+[node name="Root" type="Control" unique_id=503811695]
+clip_children = 1
+material = SubResource("ShaderMaterial_oqinm")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_4jocx")
+
+[node name="InputHandler" type="Node2D" parent="." unique_id=1869188651]
+unique_name_in_owner = true
+position = Vector2(0, 52)
+script = ExtResource("6_gdit3")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1867097655]
+material = ExtResource("3_er4ar")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("4_g1xfy")
+shader_mode_ball = ExtResource("3_er4ar")
+shader_mode_word = ExtResource("9_er4ar")
+
+[node name="UI" type="VBoxContainer" parent="." unique_id=1169890820]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="HBoxContainer" parent="UI" unique_id=1407761089]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="FileButton" type="Button" parent="UI/Top" unique_id=1644247056]
+layout_mode = 2
+text = "Test"
+
+[node name="SettingsButton" type="Button" parent="UI/Top" unique_id=1179210861]
+layout_mode = 2
+text = "Settings"
+
+[node name="FileMenuButton" type="MenuButton" parent="UI/Top" unique_id=143826385]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Datoteka"
+flat = false
+item_count = 3
+popup/item_0/text = "Nova Igra"
+popup/item_0/id = 0
+popup/item_1/text = "Najbolji rezultati"
+popup/item_1/id = 1
+popup/item_2/text = "Izađi"
+popup/item_2/id = 2
+script = ExtResource("3_oqinm")
+
+[node name="SettingsMenuButton" type="MenuButton" parent="UI/Top" unique_id=1849868499]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Opcije"
+flat = false
+item_count = 5
+popup/item_0/text = "Zvuk"
+popup/item_0/checkable = 1
+popup/item_0/id = 0
+popup/item_1/text = "Muzika"
+popup/item_1/checkable = 1
+popup/item_1/id = 1
+popup/item_2/text = "Vidi Sledeće"
+popup/item_2/checkable = 1
+popup/item_2/id = 2
+popup/item_3/text = "Prozor Istorije"
+popup/item_3/checkable = 1
+popup/item_3/id = 3
+popup/item_4/text = "Prozor Statistike"
+popup/item_4/checkable = 1
+popup/item_4/id = 4
+script = ExtResource("4_er4ar")
+
+[node name="Score" type="Label" parent="UI/Top" unique_id=499784823]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("5_oqinm")
+text = "0000000"
+horizontal_alignment = 1
+script = ExtResource("5_8ed5t")
+
+[node name="Preview" type="ScrollContainer" parent="UI/Top" unique_id=133165810]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+draw_focus_border = true
+vertical_scroll_mode = 0
+script = ExtResource("6_4jocx")
+
+[node name="TextureRect" type="TextureRect" parent="UI/Top/Preview" unique_id=164265843]
+material = SubResource("ShaderMaterial_oqinm")
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 3
+texture = SubResource("ViewportTexture_x7vg5")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Board" type="Control" parent="UI" unique_id=1581737021]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Grid" type="ColorRect" parent="UI/Board" unique_id=1426119957]
+material = ExtResource("11_8ed5t")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_gdit3")
+shader_mode_ball = ExtResource("11_8ed5t")
+shader_mode_word = ExtResource("9_8ed5t")
+
+[node name="ElementDisplay" parent="UI/Board" unique_id=1019889869 instance=ExtResource("7_g1xfy")]
+unique_name_in_owner = true
+
+[node name="Preview" type="SubViewport" parent="." unique_id=2078475571]
+disable_3d = true
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+gui_snap_controls_to_pixels = false
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+size = Vector2i(48, 16)
+script = ExtResource("8_5kpx4")
+
+[node name="Grid" type="TileMapLayer" parent="Preview" unique_id=818288382]
+physics_interpolation_mode = 2
+tile_set = ExtResource("9_s8fps")
+occlusion_enabled = false
+collision_enabled = false
+navigation_enabled = false
+script = ExtResource("10_ep230")
+
+[node name="NewGame" parent="." unique_id=933871171 instance=ExtResource("13_6mlf7")]
+unique_name_in_owner = true
+
+[node name="Highscore" parent="." unique_id=979678802 instance=ExtResource("14_4jocx")]
+unique_name_in_owner = true
+
+[node name="Window" parent="." unique_id=1632186870 instance=ExtResource("15_4jocx")]
+
+[connection signal="pressed" from="UI/Top/FileButton" to="." method="_on_file_button_pressed"]

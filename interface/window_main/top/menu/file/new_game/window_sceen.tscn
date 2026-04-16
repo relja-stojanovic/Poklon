@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyrecge66ebt6"]
+
+[ext_resource type="Script" uid="uid://bp175he2qetv1" path="res://interface/window_main/top/menu/file/new_game_popup.gd" id="1_hf16s"]
+[ext_resource type="Theme" uid="uid://csy5xf0m78gm2" path="res://assets/theme/main.tres" id="2_18fnf"]
+
+[node name="Window" type="Window"]
+disable_3d = true
+oversampling_override = 1.0
+title = "Nova igra"
+initial_position = 1
+size = Vector2i(360, 160)
+visible = false
+transient = true
+exclusive = true
+extend_to_title = true
+minimize_disabled = true
+maximize_disabled = true
+force_native = true
+keep_title_visible = true
+content_scale_mode = 1
+content_scale_aspect = 4
+script = ExtResource("1_hf16s")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_18fnf")
+
+[node name="Size" type="HBoxContainer" parent="MarginContainer/Options"]
+layout_mode = 2
+theme = ExtResource("2_18fnf")
+
+[node name="Label" type="Label" parent="MarginContainer/Options/Size"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_18fnf")
+theme_override_font_sizes/font_size = 20
+text = "Veličina Table"
+
+[node name="Input" type="SpinBox" parent="MarginContainer/Options/Size"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_18fnf")
+min_value = 3.0
+max_value = 50.0
+value = 9.0
+rounded = true
+
+[node name="SpawnAmount" type="HBoxContainer" parent="MarginContainer/Options"]
+layout_mode = 2
+theme = ExtResource("2_18fnf")
+
+[node name="Label" type="Label" parent="MarginContainer/Options/SpawnAmount"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_18fnf")
+theme_override_font_sizes/font_size = 20
+text = "Dodati po potezu"
+
+[node name="Input" type="SpinBox" parent="MarginContainer/Options/SpawnAmount"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_18fnf")
+min_value = 1.0
+max_value = 50.0
+value = 3.0
+rounded = true
+
+[node name="WordMode" type="CheckBox" parent="MarginContainer/Options"]
+layout_mode = 2
+theme = ExtResource("2_18fnf")
+text = "Slova"
+
+[node name="Confirm" type="HBoxContainer" parent="MarginContainer/Options"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("2_18fnf")
+
+[node name="Cancel" type="Button" parent="MarginContainer/Options/Confirm"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_18fnf")
+text = "Odustani"
+
+[node name="Start" type="Button" parent="MarginContainer/Options/Confirm"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_18fnf")
+text = "Počni"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="value_changed" from="MarginContainer/Options/Size/Input" to="." method="_on_input_size"]
+[connection signal="value_changed" from="MarginContainer/Options/SpawnAmount/Input" to="." method="_on_input_amount"]
+[connection signal="toggled" from="MarginContainer/Options/WordMode" to="." method="_on_input_word"]
+[connection signal="pressed" from="MarginContainer/Options/Confirm/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="MarginContainer/Options/Confirm/Start" to="." method="_on_start_pressed"]

@@ -1,0 +1,83 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[accessibility]
+
+general/accessibility_support=2
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="Poklon"
+run/main_scene="uid://ci7cukdcxsjpq"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/show_image=false
+config/icon="res://assets/texture/icon.svg"
+
+[autoload]
+
+DataHandler="*res://file/handler/DataHandler.gd"
+Path="*res://file/handler/Path.gd"
+Global="*res://Global.gd"
+GameService="*uid://cfmmj44m2krbu"
+Element="*res://file/data/Element.gd"
+Chat="*res://logic/ChatService.gd"
+
+[debug]
+
+gdscript/warnings/integer_division=0
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=564
+window/size/extend_to_title=true
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+window/vsync/vsync_mode=0
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "purple",
+"res://file/": "yellow",
+"res://interface/": "green",
+"res://logic/": "teal",
+"res://logic/game_strategy/": "blue"
+}
+
+[global_group]
+
+game_over_window=""
+
+[gui]
+
+theme/custom="uid://csy5xf0m78gm2"
+
+[input]
+
+click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[physics]
+
+common/physics_ticks_per_second=1
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

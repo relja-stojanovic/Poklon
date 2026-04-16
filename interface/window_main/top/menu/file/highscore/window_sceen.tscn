@@ -1,0 +1,74 @@
+[gd_scene load_steps=4 format=3 uid="uid://5b50t3miwmh6"]
+
+[ext_resource type="Script" uid="uid://chmms0mtqyvqu" path="res://file/highscore/display/highscore.gd" id="1_kcfmu"]
+[ext_resource type="Theme" uid="uid://csy5xf0m78gm2" path="res://assets/theme/main.tres" id="2_gba43"]
+[ext_resource type="PackedScene" uid="uid://caxlykavcnmo0" path="res://file/highscore/display/sceen.tscn" id="3_d48oy"]
+
+[node name="Window" type="Window"]
+disable_3d = true
+oversampling_override = 1.0
+title = "Najbolji rezultati"
+initial_position = 1
+size = Vector2i(360, 386)
+visible = false
+always_on_top = true
+extend_to_title = true
+minimize_disabled = true
+maximize_disabled = true
+force_native = true
+keep_title_visible = true
+content_scale_mode = 1
+content_scale_aspect = 4
+script = ExtResource("1_kcfmu")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_gba43")
+horizontal_scroll_mode = 0
+
+[node name="List" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_gba43")
+
+[node name="Score1" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score2" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score3" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score4" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score5" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score6" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score7" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score8" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score9" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[node name="Score10" parent="MarginContainer/ScrollContainer/List" instance=ExtResource("3_d48oy")]
+layout_mode = 2
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

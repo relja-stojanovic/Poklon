@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dwegaf8mwepa2"]
+
+[ext_resource type="Script" uid="uid://b2dmy8bwpmaqu" path="res://interface/window_main/game_over/window.gd" id="1_jnjxx"]
+[ext_resource type="Script" uid="uid://bcvcuv2a6lc5m" path="res://interface/window_main/game_over/score.gd" id="3_xmh3l"]
+
+[node name="Window" type="Window" unique_id=1484273985 groups=["game_over_window"]]
+disable_3d = true
+title = "Kraj igre"
+initial_position = 2
+size = Vector2i(360, 160)
+visible = false
+transient = true
+exclusive = true
+extend_to_title = true
+minimize_disabled = true
+maximize_disabled = true
+force_native = true
+keep_title_visible = true
+content_scale_mode = 1
+content_scale_aspect = 4
+script = ExtResource("1_jnjxx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1549917347]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1323530990]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1008386152]
+layout_mode = 2
+text = "Konačni poeni: 0000000"
+horizontal_alignment = 1
+script = ExtResource("3_xmh3l")
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=800306805]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Unesite ime:"
+
+[node name="NameInput" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=827156150]
+layout_mode = 2
+text = "Hendikep"
+placeholder_text = "Ime ne sme da bude prazno "
+max_length = 16
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[node name="Confirm" type="Button" parent="MarginContainer/VBoxContainer" unique_id=130604973]
+layout_mode = 2
+text = "Kraj"
+
+[connection signal="visibility_changed" from="." to="MarginContainer/VBoxContainer/Score" method="_on_window_visibility_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/NameInput" to="." method="_on_name_input_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
