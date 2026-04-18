@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyrecge66ebt6"]
+[gd_scene format=3 uid="uid://cyrecge66ebt6"]
 
-[ext_resource type="Script" uid="uid://bp175he2qetv1" path="res://interface/window_main/top/menu/file/new_game_popup.gd" id="1_hf16s"]
+[ext_resource type="Script" uid="uid://bp175he2qetv1" path="res://interface/window_main/top/menu/game/new_game_popup.gd" id="1_hf16s"]
 [ext_resource type="Theme" uid="uid://csy5xf0m78gm2" path="res://assets/theme/main.tres" id="2_18fnf"]
 
 [node name="Window" type="Window"]

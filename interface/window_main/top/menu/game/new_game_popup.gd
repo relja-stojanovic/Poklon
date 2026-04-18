@@ -23,6 +23,9 @@ func _on_cancel_pressed() -> void:
 	hide()
 
 func _on_start_pressed() -> void:
+	if input_size*input_size < input_amount+5:
+		return
+	
 	var new_data: GameData = GameData.new()
 	new_data.size = input_size
 	new_data.spawn_amount = input_amount

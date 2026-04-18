@@ -1,4 +1,4 @@
-extends MenuButton
+extends PopupMenu
 
 enum {
 	SFX,
@@ -6,49 +6,29 @@ enum {
 	PREVIEW,
 	WINDOW_CHAT,
 	WINDOW_STATS
-}
+	}
+
+var map: Dictionary[int, Setting]
 
 func _ready() -> void:
-	get_popup().index_pressed.connect(_on_index_pressed)
-	var settings: Settings = Global.settings
-	settings.sfx_changed.connect(_on_sfx_changed)
-	settings.music_changed.connect(_on_music_changed)
-	settings.preview_changed.connect(_on_preview_changed)
-	settings.window_chat_changed.connect(_on_window_chat_changed)
-	settings.window_stats_changed.connect(_on_window_stats_changed)
-	_on_sfx_changed(settings)
-	_on_music_changed(settings)
-	_on_preview_changed(settings)
-	_on_window_chat_changed(settings)
-	_on_window_stats_changed(settings)
+	index_pressed.connect(_on_index_pressed)
+	var user_settings := Global.user_settings
+	
+	map = {
+		SFX: user_settings.sfx,
+		MUSIC: user_settings.music,
+		PREVIEW: user_settings.preview,
+		WINDOW_CHAT: user_settings.window_chat,
+		WINDOW_STATS: user_settings.window_stats
+		}
+	
+	for index in map:
+		var setting = map[index]
+		setting.value_changed.connect(_on_setting_changed.bind(index))
+		_on_setting_changed(setting, index)
 
 func _on_index_pressed(index: int) -> void:
-	match index:
-		SFX:
-			Global.settings.toggle_sfx()
-		MUSIC:
-			Global.settings.toggle_music()
-		PREVIEW:
-			Global.settings.toggle_preview()
-		WINDOW_CHAT:
-			Global.settings.toggle_window_chat()
-		WINDOW_STATS:
-			Global.settings.toggle_window_stats()
+	map[index].toggle_value()
 
-func _on_file_menu_button_pressed() -> void:
-	hide()
-
-func _on_sfx_changed(settings: Settings) -> void:
-	get_popup().set_item_checked(SFX, settings.sfx)
-	
-func _on_music_changed(settings: Settings) -> void:
-	get_popup().set_item_checked(MUSIC, settings.music)
-
-func _on_preview_changed(settings: Settings) -> void:
-	get_popup().set_item_checked(PREVIEW, settings.preview)
-
-func _on_window_chat_changed(settings: Settings) -> void:
-	get_popup().set_item_checked(WINDOW_CHAT, settings.window_chat)
-	
-func _on_window_stats_changed(settings: Settings) -> void:
-	get_popup().set_item_checked(WINDOW_STATS, settings.window_stats)
+func _on_setting_changed(setting: Setting, index: int) -> void:
+	set_item_checked(index, setting.value)

@@ -5,11 +5,12 @@ const BOARD_SIZE: int = 512
 
 var data: GameData = null
 var final_score: int = 0
-var settings: Settings = null
+var user_settings: UserSettings = null
 
 func _init() -> void:
+	Lexicon.load_lexicon()
 	data = DataHandler.load_file(Path.DATA_PATH, GameData)
-	settings = DataHandler.load_file(Path.SETTINGS_PATH, Settings)
+	user_settings = DataHandler.load_file(Path.USER_SETTINGS_PATH, UserSettings)
 	
 func game_over() -> void:
 	final_score = data.score
@@ -24,7 +25,7 @@ func game_over() -> void:
 	
 func quit() -> void:
 	DataHandler.save_file(data, Path.DATA_PATH)
-	DataHandler.save_file(settings, Path.SETTINGS_PATH)
+	DataHandler.save_file(user_settings, Path.USER_SETTINGS_PATH)
 	get_tree().quit()
 
 func to_texture(element: int) -> Vector2i:

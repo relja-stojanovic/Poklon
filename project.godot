@@ -27,10 +27,8 @@ config/icon="res://assets/texture/icon.svg"
 [autoload]
 
 DataHandler="*res://file/handler/DataHandler.gd"
-Path="*res://file/handler/Path.gd"
 Global="*res://Global.gd"
 GameService="*uid://cfmmj44m2krbu"
-Element="*res://file/data/Element.gd"
 Chat="*res://logic/ChatService.gd"
 
 [debug]

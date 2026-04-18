@@ -1,4 +1,4 @@
-extends Node
+class_name Element extends RefCounted
 
 enum {
 	BALL_RED,
@@ -41,4 +41,4 @@ enum {
 	LETTER_C2,
 	LETTER_DZ,
 	LETTER_S2
-}
+	}

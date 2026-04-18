@@ -58,7 +58,3 @@ func _on_input(pos: Vector2i) -> void:
 			selected_pos = pos
 			elements_display.display_element_select(selected_pos)
 #endregion
-
-#TODO: Remove later
-func _on_file_button_pressed() -> void:
-	$NewGame.visible = true
