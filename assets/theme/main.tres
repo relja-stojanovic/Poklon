@@ -7,12 +7,6 @@
 [ext_resource type="StyleBox" uid="uid://b0x1gsgicjh23" path="res://assets/theme/style_box_pressed.tres" id="4_nre6y"]
 [ext_resource type="Texture2D" uid="uid://df3c3l28do0yo" path="res://assets/texture/check_0.png" id="5_6an04"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l7ie4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xj4hd"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdwbc"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdwbc"]
 bg_color = Color(1, 0.26666668, 0, 1)
 corner_radius_top_right = 512
@@ -60,10 +54,16 @@ color = Color(0.7529412, 0.02745098, 0.02745098, 1)
 default_font = ExtResource("1_l7ie4")
 default_font_size = 24
 Button/font_sizes/font_size = 20
-Button/styles/hover = SubResource("StyleBoxEmpty_l7ie4")
-Button/styles/normal = SubResource("StyleBoxEmpty_xj4hd")
-Button/styles/pressed = SubResource("StyleBoxEmpty_vdwbc")
+Button/styles/hover = ExtResource("2_sessm")
+Button/styles/normal = ExtResource("2_vdwbc")
+Button/styles/pressed = ExtResource("4_nre6y")
 CheckBox/font_sizes/font_size = 20
+CheckBox/icons/checked = ExtResource("4_4jp5p")
+CheckBox/icons/unchecked = ExtResource("5_6an04")
+CheckBox/styles/hover = ExtResource("2_sessm")
+CheckBox/styles/hover_pressed = ExtResource("2_sessm")
+CheckBox/styles/normal = ExtResource("2_vdwbc")
+CheckBox/styles/pressed = ExtResource("4_nre6y")
 HBoxContainer/constants/separation = 2
 HScrollBar/constants/padding_bottom = 0
 HScrollBar/constants/padding_top = 0

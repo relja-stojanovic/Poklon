@@ -66,7 +66,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_4jocx")
-metadata/_edit_horizontal_guides_ = [46.0]
+metadata/_edit_horizontal_guides_ = [48.0]
 
 [node name="Background" type="ColorRect" parent="." unique_id=1867097655]
 material = ExtResource("3_er4ar")
@@ -96,18 +96,11 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 5
 
-[node name="Menu" type="MarginContainer" parent="UI/Top" unique_id=1495278732]
+[node name="MenuBar" type="MenuBar" parent="UI/Top" unique_id=765633323]
 layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 1
+theme_override_font_sizes/font_size = 36
 
-[node name="MenuBar" type="MenuBar" parent="UI/Top/Menu" unique_id=765633323]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="Game" type="PopupMenu" parent="UI/Top/Menu/MenuBar" unique_id=126712262]
+[node name="Game" type="PopupMenu" parent="UI/Top/MenuBar" unique_id=126712262]
 oversampling_override = 1.0
 title = "Igra"
 size = Vector2i(201, 104)
@@ -128,7 +121,7 @@ item_4/text = "Izađi"
 item_4/id = 2
 script = ExtResource("6_g1xfy")
 
-[node name="Settings" type="PopupMenu" parent="UI/Top/Menu/MenuBar" unique_id=1441380948]
+[node name="Settings" type="PopupMenu" parent="UI/Top/MenuBar" unique_id=1441380948]
 oversampling_override = 1.0
 title = "Opcije"
 size = Vector2i(199, 168)
@@ -156,20 +149,15 @@ item_6/checkable = 1
 item_6/id = 3
 script = ExtResource("4_er4ar")
 
-[node name="Score" type="MarginContainer" parent="UI/Top" unique_id=285676158]
+[node name="Score" type="PanelContainer" parent="UI/Top" unique_id=2092301460]
 layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 2
+theme_override_styles/panel = ExtResource("9_5kpx4")
 
 [node name="Label" type="Label" parent="UI/Top/Score" unique_id=499784823]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("8_g1xfy")
 theme_override_font_sizes/font_size = 35
-theme_override_styles/normal = ExtResource("9_5kpx4")
 text = "0000000"
 horizontal_alignment = 1
 script = ExtResource("5_8ed5t")
@@ -178,7 +166,6 @@ script = ExtResource("5_8ed5t")
 custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("9_5kpx4")
 script = ExtResource("6_4jocx")
 
@@ -240,11 +227,13 @@ script = ExtResource("10_ep230")
 
 [node name="NewGame" parent="." unique_id=933871171 instance=ExtResource("13_6mlf7")]
 unique_name_in_owner = true
+force_native = true
 
 [node name="Highscore" parent="." unique_id=979678802 instance=ExtResource("14_4jocx")]
 unique_name_in_owner = true
+force_native = true
 
 [node name="GameOver" parent="." unique_id=1632186870 instance=ExtResource("15_4jocx")]
 
-[connection signal="id_pressed" from="UI/Top/Menu/MenuBar/Game" to="UI/Top/Menu/MenuBar/Game" method="_on_id_pressed"]
-[connection signal="id_pressed" from="UI/Top/Menu/MenuBar/Settings" to="UI/Top/Menu/MenuBar/Settings" method="_on_id_pressed"]
+[connection signal="id_pressed" from="UI/Top/MenuBar/Game" to="UI/Top/MenuBar/Game" method="_on_id_pressed"]
+[connection signal="id_pressed" from="UI/Top/MenuBar/Settings" to="UI/Top/MenuBar/Settings" method="_on_id_pressed"]
