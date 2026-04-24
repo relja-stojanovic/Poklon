@@ -78,12 +78,12 @@ func get_line(data: GameData, pos: Vector2i, dir: Vector2i) -> Array[Vector2i]:
 	
 	return output
 
-func identify_match(data: GameData, ids: Array[Vector2i]) -> Array[Vector2i]:
-	var n = ids.size()
+func identify_match(data: GameData, array: Array[Vector2i]) -> Array[Vector2i]:
+	var n = array.size()
 	
 	for length in range(n, MIN_LENGHT-1, -1):
 		for start in range(0, n - length + 1):
-			var chunk_pos = ids.slice(start, start + length)
+			var chunk_pos = array.slice(start, start + length)
 			var chunk_str = _pos_to_string(data, chunk_pos)
 			
 			if Lexicon.check_word(chunk_str):
