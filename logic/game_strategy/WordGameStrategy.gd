@@ -1,8 +1,8 @@
 class_name WordGameStrategy extends GameStrategy
 
-const LEFT: Vector2i = Vector2i(-1, 0)
-const RIGTH: Vector2i = Vector2i(1, 0)
-
+const HORIZONTAL: Vector2i = Vector2i(1, 0)
+const VERTICAL: Vector2i = Vector2i(0, 1)
+const MIN_LENGHT: int = 4
 const element_to_str: Dictionary[int, String] = {
 	Element.LETTER_A: "a",
 	Element.LETTER_B: "b",
@@ -35,55 +35,82 @@ const element_to_str: Dictionary[int, String] = {
 	Element.LETTER_DZ: "dž",
 	Element.LETTER_S2: "š"
 	}
+var LETTERS = element_to_str.keys()
 
-func gen_preview_element() -> int:
-	if randf() < 0.3:
-		var vowels = [Element.LETTER_A, Element.LETTER_E, Element.LETTER_I, Element.LETTER_O, Element.LETTER_U]
-		return vowels.pick_random()
-	return (randi() % 26) + Element.LETTER_A
+func gen_preview_element(data: GameData) -> int:
+	var counts: Dictionary[int, int] = {}
+	for letter in LETTERS:
+		counts[letter] = 0
+	
+	for pos in data.elements:
+		var element: int = ElementService.get_at(data, pos)
+		counts[element] += 1
+	
+	var weights: PackedFloat32Array = []
+	var total_weight: float = 0.0
+	
+	for letter in LETTERS:
+		var is_vowel = element_to_str[letter] in ["a", "e", "i", "o", "u"]
+		var base = 5.0 if is_vowel else 2.0
+		var weight = base / (counts[letter] + 1.0)
+		weights.append(weight)
+		total_weight += weight
 
-func str_at(data: GameData, pos: Vector2i) -> String:
-	var element := ElementService.get_at(data, pos)
-	if element >= Element.LETTER_A and element <= Element.LETTER_S2:
-		return element_to_str[element]
-	return ""
+	var roll = randf() * total_weight
+	var accumulation = 0.0
+	for i in range(LETTERS.size()):
+		accumulation += weights[i]
+		if roll <= accumulation:
+			return LETTERS[i]
+	
+	return LETTERS.pick_random()
 
-func get_letters(data: GameData, start: Vector2i, dir: Vector2i) -> String:
-	var output: String = ""
-	var current_pos: Vector2i = start + dir
-	while GameService.valid_pos(data, current_pos):
-		if ElementService.empty_at(data, current_pos):
-			break
-		output += str_at(data, current_pos)
+func get_line(data: GameData, pos: Vector2i, dir: Vector2i) -> Array[Vector2i]:
+	var start: Vector2i = pos
+	while GameService.valid_pos(data, start-dir) and not ElementService.empty_at(data, start-dir):
+		start -= dir
+	
+	var current_pos: Vector2i = start
+	var output: Array[Vector2i] = []
+	while GameService.valid_pos(data, current_pos) and not ElementService.empty_at(data, current_pos):
+		output.append(current_pos)
 		current_pos += dir
+	
 	return output
 
-func identify_match(text: String) -> MatchSearchResult:
-	var n = text.length()
-	for length in range(n, 3, -1):
+func identify_match(data: GameData, ids: Array[Vector2i]) -> Array[Vector2i]:
+	var n = ids.size()
+	
+	for length in range(n, MIN_LENGHT-1, -1):
 		for start in range(0, n - length + 1):
-			var chunk = text.substr(start, length)
-			if Lexicon.check_word(chunk):
-				return MatchSearchResult.new(start, chunk.length())
-	return MatchSearchResult.new(0, 0)
+			var chunk_pos = ids.slice(start, start + length)
+			var chunk_str = _pos_to_string(data, chunk_pos)
+			
+			if Lexicon.check_word(chunk_str):
+				return chunk_pos
+	return []
+	
+func _pos_to_string(data: GameData, array: Array[Vector2i]) -> String:
+	var s = ""
+	for pos in array:
+		s += element_to_str[ElementService.get_at(data, pos)]
+	return s
 
 func execute_match(data: GameData, pos: Vector2i) -> bool:
-	var l := get_letters(data, pos, LEFT).reverse()
-	var r := get_letters(data, pos, RIGTH)
-	var text: String = l+str_at(data, pos)+r
+	var h := get_line(data, pos, HORIZONTAL)
+	var v := get_line(data, pos, VERTICAL)
 	
-	var result := identify_match(text)
-	var total_matched: Array[Vector2i] = []
+	var result_h := identify_match(data, h)
+	var result_v := identify_match(data, v)
 	
-	for x in range(0, result.size):
-		var remove_pos := pos
-		remove_pos.x += x - l.length()
-		total_matched.append(remove_pos)
-	
+	var unique_pos: Dictionary[Vector2i, bool] = {}
+	for element_pos in result_h+result_v:
+		unique_pos.set(element_pos, true)
+	var total_matched: Array[Vector2i] = unique_pos.keys()
+		
 	if not total_matched.is_empty():
-		print(text.substr(result.start, result.size))
-		print(total_matched)
 		data.remove_elements(total_matched)
-		ScoreService.add_score(data, total_matched)
+		ScoreService.add_score(data, total_matched.size()*2)
+		return true
 
 	return false

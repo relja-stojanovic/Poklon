@@ -15,7 +15,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		Global.quit()
 
-#TODO: Code Smell
+# TODO: Fix Code Smell
 #region Selecting and Moving
 @onready var elements_display := %ElementDisplay
 var data: GameData

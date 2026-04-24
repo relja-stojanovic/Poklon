@@ -6,17 +6,23 @@ enum {
 	QUIT
 }
 
+var map: Dictionary[int, Callable] = {
+	NEW_GAME: action_new_game,
+	SHOW_BEST: action_show_best,
+	QUIT: action_quit
+}
+
 @onready var new_game_popup: Window = %NewGame
 @onready var high_scores_popup: Window = %Highscore
 
-func _ready() -> void:
-	index_pressed.connect(_on_index_pressed)
+func _on_id_pressed(id: int) -> void:
+	map[id].call()
 
-func _on_index_pressed(index: int) -> void:
-	match index:
-		NEW_GAME:
-			new_game_popup.visible = true
-		SHOW_BEST:
-			high_scores_popup.visible = true
-		QUIT:
-			Global.quit()
+func action_new_game() -> void:
+	new_game_popup.show()
+	
+func action_show_best() -> void:
+	high_scores_popup.show()
+
+func action_quit() -> void:
+	Global.quit()

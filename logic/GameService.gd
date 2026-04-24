@@ -16,11 +16,12 @@ func start(data: GameData) -> void:
 func is_game_over(data: GameData, spawn_amount: int) -> bool:
 	return data.size*data.size - data.elements.size() <= spawn_amount
 
+# TODO: Code smell
 func create_preview(data: GameData, spawn_amount: int) -> void:
 	var new_preview: Array[int] = []
 	new_preview.resize(spawn_amount)
 	for i in range(spawn_amount):
-		new_preview.set(i, get_game_strategy(data).gen_preview_element())
+		new_preview.set(i, get_game_strategy(data).gen_preview_element(data))
 	data.set_preview(new_preview)
 	
 func spawn_elements(data: GameData) -> void:

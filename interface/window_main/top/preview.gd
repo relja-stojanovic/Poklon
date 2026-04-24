@@ -1,4 +1,4 @@
-extends ScrollContainer
+extends PanelContainer
 
 func _ready() -> void:
 	var setting := Global.user_settings.preview

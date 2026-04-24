@@ -9,7 +9,7 @@ const AXES := [
 	]
 var target_element: int
 
-func gen_preview_element() -> int:
+func gen_preview_element(_data: GameData) -> int:
 	return randi() % 7 + Element.BALL_RED
 
 func _find_matches_in_direction(pos: Vector2i, data: GameData, dir: Vector2i, matched: Array[Vector2i]) -> void:
@@ -20,8 +20,6 @@ func _find_matches_in_direction(pos: Vector2i, data: GameData, dir: Vector2i, ma
 		matched.append(current_pos)
 		current_pos += dir
 
-#TODO: Code smell prob want to make it return MatchResult and not a magic bool
-# Could store changed elements, and more about successful match data
 func execute_match(data: GameData, pos: Vector2i) -> bool:
 	target_element = data.elements[pos]
 	
@@ -37,6 +35,6 @@ func execute_match(data: GameData, pos: Vector2i) -> bool:
 		total_matched.append(pos)
 		data.remove_elements(total_matched)
 		
-		ScoreService.add_score(data, total_matched)
+		ScoreService.add_score(data, total_matched.size())
 		return true
 	return false

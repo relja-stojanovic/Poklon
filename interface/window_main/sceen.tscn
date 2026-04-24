@@ -5,12 +5,13 @@
 [ext_resource type="Script" uid="uid://cbfbrqpjlwm2u" path="res://interface/window_main/top/menu/settings/menu.gd" id="4_er4ar"]
 [ext_resource type="Script" uid="uid://pke4axdkhmc7" path="res://interface/window_main/board/shader_selector.gd" id="4_g1xfy"]
 [ext_resource type="Script" uid="uid://jho7c42xy578" path="res://interface/window_main/top/score.gd" id="5_8ed5t"]
-[ext_resource type="Theme" uid="uid://b3171v3c8d6od" path="res://assets/theme/score.tres" id="5_oqinm"]
 [ext_resource type="Script" uid="uid://cyq38bk58pjkg" path="res://interface/window_main/top/preview.gd" id="6_4jocx"]
 [ext_resource type="Script" uid="uid://kyelgpl4uka3" path="res://interface/window_main/top/menu/game/menu.gd" id="6_g1xfy"]
 [ext_resource type="Script" uid="uid://djbimqgro8vku" path="res://interface/window_main/input.gd" id="6_gdit3"]
 [ext_resource type="PackedScene" uid="uid://4lbxiud0jbja" path="res://interface/window_main/board/elements_display.tscn" id="7_g1xfy"]
 [ext_resource type="Script" uid="uid://mxta8bkkeq8j" path="res://interface/window_main/preview/subviewport.gd" id="8_5kpx4"]
+[ext_resource type="FontFile" uid="uid://da058buso0wbk" path="res://assets/font/fluoWrite.otf" id="8_g1xfy"]
+[ext_resource type="StyleBox" uid="uid://da1h0kvers1k5" path="res://assets/theme/style_box.tres" id="9_5kpx4"]
 [ext_resource type="Material" uid="uid://bm3uechvrfb3b" path="res://assets/res/grid_word.tres" id="9_8ed5t"]
 [ext_resource type="Material" uid="uid://b5qp4bctqlsi1" path="res://assets/res/background_word.tres" id="9_er4ar"]
 [ext_resource type="TileSet" uid="uid://c2fjaac6tfuak" path="res://assets/res/tileset.tres" id="9_s8fps"]
@@ -53,6 +54,8 @@ shader_parameter/wave_scale = 400.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_x7vg5"]
 viewport_path = NodePath("Preview")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kpx4"]
+
 [node name="Root" type="Control" unique_id=503811695]
 clip_children = 1
 material = SubResource("ShaderMaterial_oqinm")
@@ -63,11 +66,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_4jocx")
-
-[node name="InputHandler" type="Node2D" parent="." unique_id=1869188651]
-unique_name_in_owner = true
-position = Vector2(0, 52)
-script = ExtResource("6_gdit3")
+metadata/_edit_horizontal_guides_ = [46.0]
 
 [node name="Background" type="ColorRect" parent="." unique_id=1867097655]
 material = ExtResource("3_er4ar")
@@ -89,92 +88,131 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
 [node name="Top" type="HBoxContainer" parent="UI" unique_id=1407761089]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 6
+theme_override_constants/separation = 5
 
-[node name="MenuBar" type="MenuBar" parent="UI/Top" unique_id=765633323]
+[node name="Menu" type="MarginContainer" parent="UI/Top" unique_id=1495278732]
 layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 1
+
+[node name="MenuBar" type="MenuBar" parent="UI/Top/Menu" unique_id=765633323]
+layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Game" type="PopupMenu" parent="UI/Top/MenuBar" unique_id=126712262]
+[node name="Game" type="PopupMenu" parent="UI/Top/Menu/MenuBar" unique_id=126712262]
 oversampling_override = 1.0
+title = "Igra"
 size = Vector2i(201, 104)
 system_menu_id = 2
 prefer_native_menu = true
-item_count = 3
+item_count = 5
 item_0/text = "Nova Igra"
 item_0/id = 0
-item_1/text = "Najbolji rezultati"
-item_1/id = 1
-item_2/text = "Izađi"
-item_2/id = 2
+item_1/id = 0
+item_1/disabled = true
+item_1/separator = true
+item_2/text = "Najbolji rezultati"
+item_2/id = 1
+item_3/id = 0
+item_3/disabled = true
+item_3/separator = true
+item_4/text = "Izađi"
+item_4/id = 2
 script = ExtResource("6_g1xfy")
 
-[node name="Settings" type="PopupMenu" parent="UI/Top/MenuBar" unique_id=1441380948]
+[node name="Settings" type="PopupMenu" parent="UI/Top/Menu/MenuBar" unique_id=1441380948]
 oversampling_override = 1.0
+title = "Opcije"
 size = Vector2i(199, 168)
-item_count = 5
+item_count = 7
 item_0/text = "Zvuk"
 item_0/checkable = 1
 item_0/id = 0
-item_1/text = "Muzika"
-item_1/checkable = 1
-item_1/id = 1
-item_2/text = "Vidi Sledeće"
+item_1/id = 0
+item_1/disabled = true
+item_1/separator = true
+item_2/text = "Muzika"
 item_2/checkable = 1
-item_2/id = 2
-item_3/text = "Prozor Istorije"
-item_3/checkable = 1
-item_3/id = 3
-item_4/text = "Prozor Statistike"
+item_2/id = 1
+item_3/id = 0
+item_3/disabled = true
+item_3/separator = true
+item_4/text = "Vidi Sledeće"
 item_4/checkable = 1
-item_4/id = 4
+item_4/id = 2
+item_5/id = 0
+item_5/disabled = true
+item_5/separator = true
+item_6/text = "Prozor Istorije"
+item_6/checkable = 1
+item_6/id = 3
 script = ExtResource("4_er4ar")
 
-[node name="Score" type="Label" parent="UI/Top" unique_id=499784823]
+[node name="Score" type="MarginContainer" parent="UI/Top" unique_id=285676158]
 layout_mode = 2
-size_flags_horizontal = 8
-theme = ExtResource("5_oqinm")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 2
+
+[node name="Label" type="Label" parent="UI/Top/Score" unique_id=499784823]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("8_g1xfy")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = ExtResource("9_5kpx4")
 text = "0000000"
 horizontal_alignment = 1
 script = ExtResource("5_8ed5t")
 
-[node name="Preview" type="ScrollContainer" parent="UI/Top" unique_id=133165810]
+[node name="Preview" type="PanelContainer" parent="UI/Top" unique_id=339207991]
+custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
-draw_focus_border = true
-vertical_scroll_mode = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("9_5kpx4")
 script = ExtResource("6_4jocx")
 
-[node name="TextureRect" type="TextureRect" parent="UI/Top/Preview" unique_id=164265843]
-material = SubResource("ShaderMaterial_oqinm")
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Top/Preview" unique_id=133165810]
 layout_mode = 2
 size_flags_horizontal = 3
+draw_focus_border = true
+vertical_scroll_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Top/Preview/ScrollContainer" unique_id=164265843]
+material = SubResource("ShaderMaterial_oqinm")
+layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 3
 texture = SubResource("ViewportTexture_x7vg5")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Board" type="Control" parent="UI" unique_id=1581737021]
+[node name="Board" type="PanelContainer" parent="UI" unique_id=1546694164]
+custom_minimum_size = Vector2(512, 512)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5kpx4")
 
 [node name="Grid" type="ColorRect" parent="UI/Board" unique_id=1426119957]
 material = ExtResource("11_8ed5t")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 script = ExtResource("11_gdit3")
 shader_mode_ball = ExtResource("11_8ed5t")
 shader_mode_word = ExtResource("9_8ed5t")
+
+[node name="InputHandler" type="Node2D" parent="UI/Board" unique_id=1869188651]
+unique_name_in_owner = true
+script = ExtResource("6_gdit3")
 
 [node name="ElementDisplay" parent="UI/Board" unique_id=1019889869 instance=ExtResource("7_g1xfy")]
 unique_name_in_owner = true
@@ -208,4 +246,5 @@ unique_name_in_owner = true
 
 [node name="GameOver" parent="." unique_id=1632186870 instance=ExtResource("15_4jocx")]
 
-[connection signal="id_pressed" from="UI/Top/MenuBar/Game" to="UI/Top/MenuBar/Game" method="_on_id_pressed"]
+[connection signal="id_pressed" from="UI/Top/Menu/MenuBar/Game" to="UI/Top/Menu/MenuBar/Game" method="_on_id_pressed"]
+[connection signal="id_pressed" from="UI/Top/Menu/MenuBar/Settings" to="UI/Top/Menu/MenuBar/Settings" method="_on_id_pressed"]
