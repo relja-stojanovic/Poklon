@@ -22,14 +22,16 @@ config/name="Poklon"
 run/main_scene="uid://ci7cukdcxsjpq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="res://assets/texture/icon.svg"
+config/icon="uid://dg5jb40tr5ayf"
+config/macos_native_icon="uid://dg5jb40tr5ayf"
+config/windows_native_icon="uid://dg5jb40tr5ayf"
 
 [autoload]
 
 DataHandler="*res://file/handler/DataHandler.gd"
 Global="*res://Global.gd"
 GameService="*uid://cfmmj44m2krbu"
-Chat="*res://logic/ChatService.gd"
+Chat="*res://logic/services/ChatService.gd"
 
 [debug]
 
@@ -49,9 +51,11 @@ window/vsync/vsync_mode=0
 folder_colors={
 "res://assets/": "purple",
 "res://file/": "yellow",
+"res://icon/": "red",
 "res://interface/": "green",
 "res://logic/": "teal",
-"res://logic/game_strategy/": "blue"
+"res://logic/game_strategy/": "blue",
+"res://output/": "gray"
 }
 
 [global_group]

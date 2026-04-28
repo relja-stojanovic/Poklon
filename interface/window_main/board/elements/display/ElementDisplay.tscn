@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b4y7ub33upe5k"]
 
-[ext_resource type="Script" uid="uid://biusdpve8fkis" path="res://interface/window_main/board/elements/display/node.gd" id="1_i4ag1"]
-[ext_resource type="Material" uid="uid://c8b754gca03lt" path="res://assets/res/selected_element.tres" id="2_xj2qn"]
-[ext_resource type="Texture2D" uid="uid://c6bmny5thl2b3" path="res://assets/texture/texture.png" id="2_xtxc2"]
+[ext_resource type="Script" uid="uid://biusdpve8fkis" path="res://interface/window_main/board/elements/display/ElementDisplay.gd" id="1_kp3uo"]
+[ext_resource type="Material" uid="uid://c8b754gca03lt" path="res://assets/res/selected_element.tres" id="2_nw7v3"]
+[ext_resource type="Texture2D" uid="uid://c6bmny5thl2b3" path="res://assets/texture/texture.png" id="3_1reom"]
 
 [sub_resource type="Animation" id="Animation_gndpx"]
 length = 0.001
@@ -116,13 +116,13 @@ _data = {
 }
 
 [node name="Element" type="Node2D" unique_id=1995549481 node_paths=PackedStringArray("sprite", "anim_player")]
-script = ExtResource("1_i4ag1")
+script = ExtResource("1_kp3uo")
 sprite = NodePath("Sprite")
 anim_player = NodePath("AnimationPlayer")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=60457426]
-material = ExtResource("2_xj2qn")
-texture = ExtResource("2_xtxc2")
+material = ExtResource("2_nw7v3")
+texture = ExtResource("3_1reom")
 region_enabled = true
 region_rect = Rect2(0, 0, 80, 80)
 

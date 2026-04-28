@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cyrecge66ebt6"]
 
-[ext_resource type="Script" uid="uid://bp175he2qetv1" path="res://interface/window_main/top/menu/game/new_game_popup.gd" id="1_hf16s"]
-[ext_resource type="Material" uid="uid://dmutr5qjejtf8" path="res://assets/res/background_ball.tres" id="2_d00f1"]
+[ext_resource type="Script" uid="uid://bp175he2qetv1" path="res://interface/popup_new_game/script.gd" id="1_hf16s"]
+[ext_resource type="Material" uid="uid://b5qp4bctqlsi1" path="res://assets/res/background_word.tres" id="2_omtwj"]
 
-[node name="Window" type="Window" unique_id=14163519]
+[node name="NewGame" type="Window" unique_id=14163519]
 disable_3d = true
 oversampling_override = 1.0
 title = "Nova igra"
@@ -22,7 +22,7 @@ content_scale_aspect = 4
 script = ExtResource("1_hf16s")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1720065582]
-material = ExtResource("2_d00f1")
+material = ExtResource("2_omtwj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

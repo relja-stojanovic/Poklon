@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://d1vap8bslionw"]
+
+[ext_resource type="Script" uid="uid://c1qm0pko82ny7" path="res://interface/window_chat/script.gd" id="1_7k2ew"]
+[ext_resource type="Material" uid="uid://b5qp4bctqlsi1" path="res://assets/res/background_word.tres" id="1_kj3nb"]
+
+[node name="Chat" type="Window" unique_id=1568439736]
+oversampling_override = 1.0
+title = "Istorija"
+initial_position = 4
+size = Vector2i(200, 300)
+visible = false
+always_on_top = true
+extend_to_title = true
+maximize_disabled = true
+force_native = true
+min_size = Vector2i(66, 200)
+content_scale_mode = 2
+content_scale_aspect = 4
+script = ExtResource("1_7k2ew")
+
+[node name="Background" type="ColorRect" parent="." unique_id=590077248]
+material = ExtResource("1_kj3nb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1284989172]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 0
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

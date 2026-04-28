@@ -1,13 +1,14 @@
 extends Window
 
-var user_name: String = "Hendikep"
+var user_name: String = "Igrač"
+@onready var confirm_button = %Confirm
 
 func _ready() -> void:
 	content_scale_size = size
 
 func _on_name_input_text_changed(new_text: String) -> void:
 	user_name = new_text
-	$MarginContainer/VBoxContainer/Confirm.disabled = user_name.is_empty()
+	confirm_button.disabled = user_name.is_empty()
 
 func _on_confirm_pressed() -> void:
 	var highscore: Highscore = DataHandler.load_file(Path.HIGHSCORE_PATH, Highscore)

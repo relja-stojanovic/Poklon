@@ -19,10 +19,11 @@ func move(data: GameData, old_pos: Vector2i, new_pos: Vector2i) -> void:
 
 func remove(pos: Vector2i, play_animation: bool) -> void:
 	if mem.has(pos):
-		if play_animation:
-			await mem[pos].remove()
-		mem[pos].queue_free()
+		var element: ElementDisplay = mem[pos]
 		mem.erase(pos)
+		if play_animation:
+			await element.remove()
+		element.queue_free()
 	
 func _ready() -> void:
 	var data: GameData = Global.data

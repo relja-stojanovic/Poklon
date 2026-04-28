@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://kuowvdd77jvp" path="res://interface/window_main/main.gd" id="2_4jocx"]
 [ext_resource type="Material" uid="uid://dmutr5qjejtf8" path="res://assets/res/background_ball.tres" id="3_er4ar"]
-[ext_resource type="Script" uid="uid://cbfbrqpjlwm2u" path="res://interface/window_main/top/menu/settings/menu.gd" id="4_er4ar"]
+[ext_resource type="Script" uid="uid://cbfbrqpjlwm2u" path="res://interface/window_main/top/menu/menu_settings.gd" id="4_er4ar"]
 [ext_resource type="Script" uid="uid://pke4axdkhmc7" path="res://interface/window_main/board/shader_selector.gd" id="4_g1xfy"]
 [ext_resource type="Script" uid="uid://jho7c42xy578" path="res://interface/window_main/top/score.gd" id="5_8ed5t"]
 [ext_resource type="Script" uid="uid://cyq38bk58pjkg" path="res://interface/window_main/top/preview.gd" id="6_4jocx"]
-[ext_resource type="Script" uid="uid://kyelgpl4uka3" path="res://interface/window_main/top/menu/game/menu.gd" id="6_g1xfy"]
+[ext_resource type="Script" uid="uid://kyelgpl4uka3" path="res://interface/window_main/top/menu/menu_game.gd" id="6_g1xfy"]
 [ext_resource type="Script" uid="uid://djbimqgro8vku" path="res://interface/window_main/input.gd" id="6_gdit3"]
-[ext_resource type="PackedScene" uid="uid://4lbxiud0jbja" path="res://interface/window_main/board/elements_display.tscn" id="7_g1xfy"]
+[ext_resource type="PackedScene" uid="uid://4lbxiud0jbja" path="res://interface/window_main/board/elements/ElementsDisplay.tscn" id="7_g1xfy"]
 [ext_resource type="Script" uid="uid://mxta8bkkeq8j" path="res://interface/window_main/preview/subviewport.gd" id="8_5kpx4"]
 [ext_resource type="FontFile" uid="uid://da058buso0wbk" path="res://assets/font/fluoWrite.otf" id="8_g1xfy"]
 [ext_resource type="StyleBox" uid="uid://da1h0kvers1k5" path="res://assets/theme/style_box.tres" id="9_5kpx4"]
@@ -18,9 +18,11 @@
 [ext_resource type="Script" uid="uid://y87xjiajg2ic" path="res://interface/window_main/preview/grid.gd" id="10_ep230"]
 [ext_resource type="Material" uid="uid://dha122hf0wl4l" path="res://assets/res/grid_ball.tres" id="11_8ed5t"]
 [ext_resource type="Script" uid="uid://dabb6sgv3i21e" path="res://interface/window_main/board/grid.gd" id="11_gdit3"]
-[ext_resource type="PackedScene" uid="uid://cyrecge66ebt6" path="res://interface/window_main/top/menu/game/new_game/window_sceen.tscn" id="13_6mlf7"]
-[ext_resource type="PackedScene" uid="uid://5b50t3miwmh6" path="res://interface/window_main/top/menu/game/highscore/window_sceen.tscn" id="14_4jocx"]
-[ext_resource type="PackedScene" uid="uid://dwegaf8mwepa2" path="res://interface/window_main/game_over/window_sceen.tscn" id="15_4jocx"]
+[ext_resource type="PackedScene" uid="uid://cyrecge66ebt6" path="res://interface/popup_new_game/sceen.tscn" id="13_6mlf7"]
+[ext_resource type="PackedScene" uid="uid://5b50t3miwmh6" path="res://interface/window_highscore/sceen.tscn" id="14_4jocx"]
+[ext_resource type="PackedScene" uid="uid://dwegaf8mwepa2" path="res://interface/popup_gameover/sceen.tscn" id="15_4jocx"]
+[ext_resource type="Script" uid="uid://2y88nxiu4w3g" path="res://logic/InterfaceLogic.gd" id="16_ep230"]
+[ext_resource type="PackedScene" uid="uid://d1vap8bslionw" path="res://interface/window_chat/sceen.tscn" id="22_s8fps"]
 
 [sub_resource type="Shader" id="Shader_6mlf7"]
 code = "shader_type canvas_item;
@@ -204,6 +206,10 @@ script = ExtResource("6_gdit3")
 [node name="ElementDisplay" parent="UI/Board" unique_id=1019889869 instance=ExtResource("7_g1xfy")]
 unique_name_in_owner = true
 
+[node name="InterfaceLogic" type="Node" parent="." unique_id=1500760517]
+script = ExtResource("16_ep230")
+metadata/_custom_type_script = "uid://2y88nxiu4w3g"
+
 [node name="Preview" type="SubViewport" parent="." unique_id=2078475571]
 disable_3d = true
 transparent_bg = true
@@ -234,6 +240,8 @@ unique_name_in_owner = true
 force_native = true
 
 [node name="GameOver" parent="." unique_id=1632186870 instance=ExtResource("15_4jocx")]
+
+[node name="Chat" parent="." unique_id=1568439736 instance=ExtResource("22_s8fps")]
 
 [connection signal="id_pressed" from="UI/Top/MenuBar/Game" to="UI/Top/MenuBar/Game" method="_on_id_pressed"]
 [connection signal="id_pressed" from="UI/Top/MenuBar/Settings" to="UI/Top/MenuBar/Settings" method="_on_id_pressed"]
