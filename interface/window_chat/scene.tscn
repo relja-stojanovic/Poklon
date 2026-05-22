@@ -2,19 +2,23 @@
 
 [ext_resource type="Script" uid="uid://c1qm0pko82ny7" path="res://interface/window_chat/script.gd" id="1_7k2ew"]
 [ext_resource type="Material" uid="uid://b5qp4bctqlsi1" path="res://assets/res/background_word.tres" id="1_kj3nb"]
+[ext_resource type="Script" uid="uid://dl4c1jl8mehsk" path="res://interface/window_chat/display.gd" id="3_ywv6q"]
 
 [node name="Chat" type="Window" unique_id=1568439736]
-oversampling_override = 1.0
+disable_3d = true
 title = "Istorija"
 initial_position = 4
 size = Vector2i(200, 300)
 visible = false
 always_on_top = true
 extend_to_title = true
+minimize_disabled = true
 maximize_disabled = true
 force_native = true
 min_size = Vector2i(66, 200)
-content_scale_mode = 2
+keep_title_visible = true
+content_scale_size = Vector2i(200, 300)
+content_scale_mode = 1
 content_scale_aspect = 4
 script = ExtResource("1_7k2ew")
 
@@ -25,13 +29,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1284989172]
+[node name="Display" type="RichTextLabel" parent="." unique_id=1284989172]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "- Početak -"
 autowrap_mode = 0
+script = ExtResource("3_ywv6q")
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="size_changed" from="." to="." method="_on_size_changed"]

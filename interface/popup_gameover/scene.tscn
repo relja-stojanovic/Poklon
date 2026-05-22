@@ -6,7 +6,6 @@
 
 [node name="GameOver" type="Window" unique_id=1484273985 groups=["game_over_window"]]
 disable_3d = true
-oversampling_override = 1.0
 title = "Kraj igre"
 initial_position = 2
 size = Vector2i(360, 160)

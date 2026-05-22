@@ -1,4 +1,4 @@
-class_name ScoreElement extends HBoxContainer
+class_name ScoreElement extends PanelContainer
 
 @onready var user_node := %User
 @onready var score_node := %Score

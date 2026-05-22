@@ -1,28 +1,28 @@
 [gd_scene format=3 uid="uid://ci7cukdcxsjpq"]
 
-[ext_resource type="Script" uid="uid://kuowvdd77jvp" path="res://interface/window_main/main.gd" id="2_4jocx"]
-[ext_resource type="Material" uid="uid://dmutr5qjejtf8" path="res://assets/res/background_ball.tres" id="3_er4ar"]
-[ext_resource type="Script" uid="uid://cbfbrqpjlwm2u" path="res://interface/window_main/top/menu/menu_settings.gd" id="4_er4ar"]
-[ext_resource type="Script" uid="uid://pke4axdkhmc7" path="res://interface/window_main/board/shader_selector.gd" id="4_g1xfy"]
-[ext_resource type="Script" uid="uid://jho7c42xy578" path="res://interface/window_main/top/score.gd" id="5_8ed5t"]
-[ext_resource type="Script" uid="uid://cyq38bk58pjkg" path="res://interface/window_main/top/preview.gd" id="6_4jocx"]
-[ext_resource type="Script" uid="uid://kyelgpl4uka3" path="res://interface/window_main/top/menu/menu_game.gd" id="6_g1xfy"]
-[ext_resource type="Script" uid="uid://djbimqgro8vku" path="res://interface/window_main/input.gd" id="6_gdit3"]
-[ext_resource type="PackedScene" uid="uid://4lbxiud0jbja" path="res://interface/window_main/board/elements/ElementsDisplay.tscn" id="7_g1xfy"]
-[ext_resource type="Script" uid="uid://mxta8bkkeq8j" path="res://interface/window_main/preview/subviewport.gd" id="8_5kpx4"]
-[ext_resource type="FontFile" uid="uid://da058buso0wbk" path="res://assets/font/fluoWrite.otf" id="8_g1xfy"]
-[ext_resource type="StyleBox" uid="uid://da1h0kvers1k5" path="res://assets/theme/style_box.tres" id="9_5kpx4"]
-[ext_resource type="Material" uid="uid://bm3uechvrfb3b" path="res://assets/res/grid_word.tres" id="9_8ed5t"]
-[ext_resource type="Material" uid="uid://b5qp4bctqlsi1" path="res://assets/res/background_word.tres" id="9_er4ar"]
-[ext_resource type="TileSet" uid="uid://c2fjaac6tfuak" path="res://assets/res/tileset.tres" id="9_s8fps"]
-[ext_resource type="Script" uid="uid://y87xjiajg2ic" path="res://interface/window_main/preview/grid.gd" id="10_ep230"]
-[ext_resource type="Material" uid="uid://dha122hf0wl4l" path="res://assets/res/grid_ball.tres" id="11_8ed5t"]
-[ext_resource type="Script" uid="uid://dabb6sgv3i21e" path="res://interface/window_main/board/grid.gd" id="11_gdit3"]
-[ext_resource type="PackedScene" uid="uid://cyrecge66ebt6" path="res://interface/popup_new_game/sceen.tscn" id="13_6mlf7"]
-[ext_resource type="PackedScene" uid="uid://5b50t3miwmh6" path="res://interface/window_highscore/sceen.tscn" id="14_4jocx"]
-[ext_resource type="PackedScene" uid="uid://dwegaf8mwepa2" path="res://interface/popup_gameover/sceen.tscn" id="15_4jocx"]
-[ext_resource type="Script" uid="uid://2y88nxiu4w3g" path="res://logic/InterfaceLogic.gd" id="16_ep230"]
-[ext_resource type="PackedScene" uid="uid://d1vap8bslionw" path="res://interface/window_chat/sceen.tscn" id="22_s8fps"]
+[ext_resource type="Script" uid="uid://kuowvdd77jvp" path="res://interface/window_main/main.gd" id="1_niecp"]
+[ext_resource type="Material" uid="uid://dmutr5qjejtf8" path="res://assets/res/background_ball.tres" id="2_p6gcl"]
+[ext_resource type="Script" uid="uid://pke4axdkhmc7" path="res://interface/window_main/board/shader_selector.gd" id="3_ju0ni"]
+[ext_resource type="Material" uid="uid://b5qp4bctqlsi1" path="res://assets/res/background_word.tres" id="4_tj0x6"]
+[ext_resource type="Script" uid="uid://kyelgpl4uka3" path="res://interface/window_main/top/menu/menu_game.gd" id="5_4161u"]
+[ext_resource type="Script" uid="uid://cbfbrqpjlwm2u" path="res://interface/window_main/top/menu/menu_settings.gd" id="6_e3kpp"]
+[ext_resource type="StyleBox" uid="uid://da1h0kvers1k5" path="res://assets/theme/style_box.tres" id="7_hwc4h"]
+[ext_resource type="FontFile" uid="uid://da058buso0wbk" path="res://assets/font/fluoWrite.otf" id="8_wcj0c"]
+[ext_resource type="Script" uid="uid://jho7c42xy578" path="res://interface/window_main/top/score.gd" id="9_23uwg"]
+[ext_resource type="Script" uid="uid://cyq38bk58pjkg" path="res://interface/window_main/top/preview.gd" id="10_missb"]
+[ext_resource type="Material" uid="uid://dha122hf0wl4l" path="res://assets/res/grid_ball.tres" id="11_i3v2v"]
+[ext_resource type="Script" uid="uid://dabb6sgv3i21e" path="res://interface/window_main/board/grid.gd" id="12_cqiij"]
+[ext_resource type="Material" uid="uid://bm3uechvrfb3b" path="res://assets/res/grid_word.tres" id="13_ip5nk"]
+[ext_resource type="Script" uid="uid://djbimqgro8vku" path="res://interface/window_main/input.gd" id="14_u0u4k"]
+[ext_resource type="PackedScene" uid="uid://4lbxiud0jbja" path="res://interface/window_main/board/elements/ElementsDisplay.tscn" id="15_gxhe6"]
+[ext_resource type="Script" uid="uid://2y88nxiu4w3g" path="res://logic/InterfaceLogic.gd" id="16_mnf4w"]
+[ext_resource type="Script" uid="uid://mxta8bkkeq8j" path="res://interface/window_main/preview/subviewport.gd" id="17_oixmc"]
+[ext_resource type="TileSet" uid="uid://c2fjaac6tfuak" path="res://assets/res/tileset.tres" id="18_k6pjo"]
+[ext_resource type="Script" uid="uid://y87xjiajg2ic" path="res://interface/window_main/preview/grid.gd" id="19_fciv4"]
+[ext_resource type="PackedScene" uid="uid://cyrecge66ebt6" path="res://interface/popup_new_game/scene.tscn" id="20_b37en"]
+[ext_resource type="PackedScene" uid="uid://5b50t3miwmh6" path="res://interface/window_highscore/scene.tscn" id="21_dun7r"]
+[ext_resource type="PackedScene" uid="uid://dwegaf8mwepa2" path="res://interface/popup_gameover/scene.tscn" id="22_uarwk"]
+[ext_resource type="PackedScene" uid="uid://d1vap8bslionw" path="res://interface/window_chat/scene.tscn" id="23_1mhql"]
 
 [sub_resource type="Shader" id="Shader_6mlf7"]
 code = "shader_type canvas_item;
@@ -67,11 +67,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_4jocx")
+script = ExtResource("1_niecp")
 metadata/_edit_horizontal_guides_ = [48.0]
 
 [node name="Background" type="ColorRect" parent="." unique_id=1867097655]
-material = ExtResource("3_er4ar")
+material = ExtResource("2_p6gcl")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,9 +79,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-script = ExtResource("4_g1xfy")
-shader_mode_ball = ExtResource("3_er4ar")
-shader_mode_word = ExtResource("9_er4ar")
+script = ExtResource("3_ju0ni")
+shader_mode_ball = ExtResource("2_p6gcl")
+shader_mode_word = ExtResource("4_tj0x6")
 
 [node name="UI" type="VBoxContainer" parent="." unique_id=1169890820]
 layout_mode = 1
@@ -121,7 +121,7 @@ item_3/disabled = true
 item_3/separator = true
 item_4/text = "Izađi"
 item_4/id = 2
-script = ExtResource("6_g1xfy")
+script = ExtResource("5_4161u")
 
 [node name="Settings" type="PopupMenu" parent="UI/Top/MenuBar" unique_id=1441380948]
 oversampling_override = 1.0
@@ -149,27 +149,27 @@ item_5/separator = true
 item_6/text = "Prozor Istorije"
 item_6/checkable = 1
 item_6/id = 3
-script = ExtResource("4_er4ar")
+script = ExtResource("6_e3kpp")
 
 [node name="Score" type="PanelContainer" parent="UI/Top" unique_id=2092301460]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("9_5kpx4")
+theme_override_styles/panel = ExtResource("7_hwc4h")
 
 [node name="Label" type="Label" parent="UI/Top/Score" unique_id=499784823]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("8_g1xfy")
+theme_override_fonts/font = ExtResource("8_wcj0c")
 theme_override_font_sizes/font_size = 35
 text = "0000000"
 horizontal_alignment = 1
-script = ExtResource("5_8ed5t")
+script = ExtResource("9_23uwg")
 
 [node name="Preview" type="PanelContainer" parent="UI/Top" unique_id=339207991]
 custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("9_5kpx4")
-script = ExtResource("6_4jocx")
+theme_override_styles/panel = ExtResource("7_hwc4h")
+script = ExtResource("10_missb")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/Top/Preview" unique_id=133165810]
 layout_mode = 2
@@ -193,21 +193,21 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_5kpx4")
 
 [node name="Grid" type="ColorRect" parent="UI/Board" unique_id=1426119957]
-material = ExtResource("11_8ed5t")
+material = ExtResource("11_i3v2v")
 layout_mode = 2
-script = ExtResource("11_gdit3")
-shader_mode_ball = ExtResource("11_8ed5t")
-shader_mode_word = ExtResource("9_8ed5t")
+script = ExtResource("12_cqiij")
+shader_mode_ball = ExtResource("11_i3v2v")
+shader_mode_word = ExtResource("13_ip5nk")
 
 [node name="InputHandler" type="Node2D" parent="UI/Board" unique_id=1869188651]
 unique_name_in_owner = true
-script = ExtResource("6_gdit3")
+script = ExtResource("14_u0u4k")
 
-[node name="ElementDisplay" parent="UI/Board" unique_id=1019889869 instance=ExtResource("7_g1xfy")]
+[node name="ElementDisplay" parent="UI/Board" unique_id=1019889869 instance=ExtResource("15_gxhe6")]
 unique_name_in_owner = true
 
 [node name="InterfaceLogic" type="Node" parent="." unique_id=1500760517]
-script = ExtResource("16_ep230")
+script = ExtResource("16_mnf4w")
 metadata/_custom_type_script = "uid://2y88nxiu4w3g"
 
 [node name="Preview" type="SubViewport" parent="." unique_id=2078475571]
@@ -221,27 +221,27 @@ positional_shadow_atlas_quad_1 = 0
 positional_shadow_atlas_quad_2 = 0
 positional_shadow_atlas_quad_3 = 0
 size = Vector2i(48, 16)
-script = ExtResource("8_5kpx4")
+script = ExtResource("17_oixmc")
 
 [node name="Grid" type="TileMapLayer" parent="Preview" unique_id=818288382]
 physics_interpolation_mode = 2
-tile_set = ExtResource("9_s8fps")
+tile_set = ExtResource("18_k6pjo")
 occlusion_enabled = false
 collision_enabled = false
 navigation_enabled = false
-script = ExtResource("10_ep230")
+script = ExtResource("19_fciv4")
 
-[node name="NewGame" parent="." unique_id=933871171 instance=ExtResource("13_6mlf7")]
+[node name="NewGame" parent="." unique_id=933871171 instance=ExtResource("20_b37en")]
 unique_name_in_owner = true
 force_native = true
 
-[node name="Highscore" parent="." unique_id=979678802 instance=ExtResource("14_4jocx")]
+[node name="Highscore" parent="." unique_id=979678802 instance=ExtResource("21_dun7r")]
 unique_name_in_owner = true
 force_native = true
 
-[node name="GameOver" parent="." unique_id=1632186870 instance=ExtResource("15_4jocx")]
+[node name="GameOver" parent="." unique_id=1632186870 instance=ExtResource("22_uarwk")]
 
-[node name="Chat" parent="." unique_id=1568439736 instance=ExtResource("22_s8fps")]
+[node name="Chat" parent="." unique_id=1568439736 instance=ExtResource("23_1mhql")]
 
 [connection signal="id_pressed" from="UI/Top/MenuBar/Game" to="UI/Top/MenuBar/Game" method="_on_id_pressed"]
 [connection signal="id_pressed" from="UI/Top/MenuBar/Settings" to="UI/Top/MenuBar/Settings" method="_on_id_pressed"]

@@ -36,5 +36,6 @@ func execute_match(data: GameData, pos: Vector2i) -> bool:
 		data.remove_elements(total_matched)
 		
 		ScoreService.add_score(data, total_matched.size())
+		Chat.info_ball(total_matched.size(), target_element)
 		return true
 	return false

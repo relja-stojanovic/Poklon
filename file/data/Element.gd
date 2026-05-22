@@ -7,7 +7,7 @@ enum {
 	BALL_YELLOW,
 	BALL_LIGHT_BLUE,
 	BALL_PURPLE,
-	BALL_BROWN,
+	BALL_BROWN, #TODO: Code smell, in game it's white, to not make unnecessary crahses I kept it
 	EMPTY,
 	BACKGROUND_BALL,
 	BACKGROUND_WORD,
