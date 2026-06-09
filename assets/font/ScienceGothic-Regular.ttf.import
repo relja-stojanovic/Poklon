@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dpn6febolw41"
-path="res://.godot/imported/Unitblock.ttf-737fbec178824ba2e4f4120024e25f33.fontdata"
+uid="uid://demh05yixdltf"
+path="res://.godot/imported/ScienceGothic-Regular.ttf-5a648861f4a47638ae73de7de534b3a1.fontdata"
 
 [deps]
 
-source_file="res://assets/font/Unitblock.ttf"
-dest_files=["res://.godot/imported/Unitblock.ttf-737fbec178824ba2e4f4120024e25f33.fontdata"]
+source_file="res://assets/font/ScienceGothic-Regular.ttf"
+dest_files=["res://.godot/imported/ScienceGothic-Regular.ttf-5a648861f4a47638ae73de7de534b3a1.fontdata"]
 
 [params]
 

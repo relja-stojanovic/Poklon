@@ -1,6 +1,5 @@
 [gd_resource type="Theme" format=3 uid="uid://csy5xf0m78gm2"]
 
-[ext_resource type="FontFile" uid="uid://dpn6febolw41" path="res://assets/font/Unitblock.ttf" id="1_l7ie4"]
 [ext_resource type="StyleBox" uid="uid://dptoumkdj73r6" path="res://assets/theme/style_box_hover.tres" id="2_sessm"]
 [ext_resource type="StyleBox" uid="uid://da1h0kvers1k5" path="res://assets/theme/style_box.tres" id="2_vdwbc"]
 [ext_resource type="Texture2D" uid="uid://carq122ku5vrd" path="res://assets/texture/check_1.png" id="4_4jp5p"]
@@ -51,7 +50,6 @@ corner_detail = 1
 color = Color(0.7529412, 0.02745098, 0.02745098, 1)
 
 [resource]
-default_font = ExtResource("1_l7ie4")
 default_font_size = 24
 Button/font_sizes/font_size = 20
 Button/styles/hover = ExtResource("2_sessm")

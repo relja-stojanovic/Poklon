@@ -110,9 +110,9 @@ func execute_match(data: GameData, pos: Vector2i) -> bool:
 		
 	if not total_matched.is_empty():
 		if not result_h.is_empty():
-			Chat.info_word(_pos_to_string(data, result_h).capitalize())
+			Chat.info_word(_pos_to_string(data, result_h))
 		if not result_v.is_empty():
-			Chat.info_word(_pos_to_string(data, result_v).capitalize())
+			Chat.info_word(_pos_to_string(data, result_v))
 		data.remove_elements(total_matched)
 		ScoreService.add_score(data, total_matched.size()*2)
 		return true

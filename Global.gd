@@ -1,6 +1,6 @@
 extends Node
 
-const TILE_SIZE: int = 80
+const TILE_SIZE: int = 120
 const BOARD_SIZE: int = 512
 
 var data: GameData = null

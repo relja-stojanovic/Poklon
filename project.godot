@@ -41,6 +41,7 @@ gdscript/warnings/integer_division=0
 
 window/size/viewport_width=512
 window/size/viewport_height=560
+window/size/mode=2
 window/size/extend_to_title=true
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1
@@ -65,6 +66,7 @@ game_over_window=""
 [gui]
 
 theme/custom="uid://csy5xf0m78gm2"
+theme/custom_font="uid://demh05yixdltf"
 
 [input]
 

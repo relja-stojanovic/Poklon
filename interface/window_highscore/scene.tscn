@@ -7,15 +7,16 @@
 
 [node name="Highscore" type="Window" unique_id=1114553827]
 disable_3d = true
-title = "Najbolji rezultati"
+title = "Најбољи резултати"
 initial_position = 1
-size = Vector2i(360, 386)
+size = Vector2i(360, 475)
 visible = false
 always_on_top = true
 extend_to_title = true
 minimize_disabled = true
 maximize_disabled = true
-min_size = Vector2i(360, 386)
+force_native = true
+min_size = Vector2i(360, 475)
 keep_title_visible = true
 content_scale_mode = 1
 content_scale_aspect = 4

@@ -6,7 +6,7 @@
 
 [node name="GameOver" type="Window" unique_id=1484273985 groups=["game_over_window"]]
 disable_3d = true
-title = "Kraj igre"
+title = "Крај игре"
 initial_position = 2
 size = Vector2i(360, 160)
 visible = false

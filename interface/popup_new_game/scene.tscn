@@ -45,7 +45,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
-text = "Veličina Table"
+text = "Величина Табле"
 
 [node name="Input" type="SpinBox" parent="MarginContainer/Options/Size" unique_id=1989165252]
 layout_mode = 2
@@ -62,7 +62,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 20
-text = "Dodati po potezu"
+text = "Додати по потезу"
 
 [node name="Input" type="SpinBox" parent="MarginContainer/Options/SpawnAmount" unique_id=1897047136]
 layout_mode = 2
@@ -74,7 +74,7 @@ rounded = true
 
 [node name="WordMode" type="CheckBox" parent="MarginContainer/Options" unique_id=169083735]
 layout_mode = 2
-text = "Slova"
+text = "Слова"
 
 [node name="Confirm" type="HBoxContainer" parent="MarginContainer/Options" unique_id=869869162]
 layout_mode = 2
@@ -83,12 +83,12 @@ size_flags_vertical = 10
 [node name="Cancel" type="Button" parent="MarginContainer/Options/Confirm" unique_id=1474469398]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Odustani"
+text = "Одустани"
 
 [node name="Start" type="Button" parent="MarginContainer/Options/Confirm" unique_id=311576777]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Počni"
+text = "Почни"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="value_changed" from="MarginContainer/Options/Size/Input" to="." method="_on_input_size"]
