@@ -7,6 +7,7 @@ const AXES := [
 		[Vector2i(1, 1), Vector2i(-1, -1)], # Diagonal LR \
 		[Vector2i(1, -1), Vector2i(-1, 1)] # Diagonal RL /
 	]
+const MUSIC: AudioStreamWAV = preload("uid://dtkabnvaprcg7")
 var target_element: int
 
 func gen_preview_element(_data: GameData) -> int:
@@ -39,3 +40,6 @@ func execute_match(data: GameData, pos: Vector2i) -> bool:
 		Chat.info_ball(total_matched.size(), target_element)
 		return true
 	return false
+
+func get_music() -> AudioStream:
+	return MUSIC

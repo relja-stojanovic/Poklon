@@ -3,6 +3,7 @@ class_name WordGameStrategy extends GameStrategy
 const HORIZONTAL: Vector2i = Vector2i(1, 0)
 const VERTICAL: Vector2i = Vector2i(0, 1)
 const MIN_LENGHT: int = 4
+const MUSIC: AudioStreamWAV = preload("uid://b5ifo1kgs37o2")
 const element_to_str: Dictionary[int, String] = {
 	Element.LETTER_A: "a",
 	Element.LETTER_B: "b",
@@ -118,3 +119,6 @@ func execute_match(data: GameData, pos: Vector2i) -> bool:
 		return true
 
 	return false
+
+func get_music() -> AudioStream:
+	return MUSIC

@@ -6,6 +6,7 @@ var data: GameData
 
 func _ready() -> void:
 	data = Global.data
+
 	if data.word_mode:
 		material = shader_mode_word
 	else:
