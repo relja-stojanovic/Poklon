@@ -6,6 +6,7 @@
 
 [node name="GameOver" type="Window" unique_id=1484273985 groups=["game_over_window"]]
 disable_3d = true
+oversampling_override = 1.0
 title = "Крај игре"
 initial_position = 2
 size = Vector2i(360, 160)
@@ -52,7 +53,7 @@ text = "Unesite ime:"
 
 [node name="NameInput" type="LineEdit" parent="MarginContainer/VBoxContainer" unique_id=827156150]
 layout_mode = 2
-text = "Igrač"
+text = "Играч"
 placeholder_text = "Ime nesme da bude prazno "
 max_length = 16
 context_menu_enabled = false

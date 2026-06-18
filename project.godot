@@ -19,12 +19,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Poklon"
+config/version="1.0.0.0"
 run/main_scene="uid://ci7cukdcxsjpq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="uid://dg5jb40tr5ayf"
-config/macos_native_icon="uid://dg5jb40tr5ayf"
-config/windows_native_icon="uid://dg5jb40tr5ayf"
+config/icon="uid://cdbi2vmfxtvhn"
+config/macos_native_icon="uid://cdbi2vmfxtvhn"
 
 [autoload]
 
@@ -45,7 +45,6 @@ window/size/mode=2
 window/size/extend_to_title=true
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1
-window/vsync/vsync_mode=0
 
 [file_customization]
 
@@ -85,3 +84,4 @@ common/physics_ticks_per_second=1
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
